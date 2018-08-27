@@ -48,8 +48,8 @@ Attributions:
     <link rel="stylesheet" type="text/css" href="css/ionicons.css">
     <link rel="stylesheet" type="text/css" href="css/tipr-corso.css">
 
-    <title>0xBitcoin Statistics</title>
-    <meta name="descripton" content="Live statistics for 0xBitcoin - the mined bitcoin-like token for Ethereum.">
+    <title>0xGold Statistics</title>
+    <meta name="descripton" content="Live statistics for 0xGold - The gold standard for decentralized gaming.">
     <meta name="viewport" content="width=600">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -84,8 +84,8 @@ Attributions:
     <div class="container">
       <div class="row">
         <div class="column">
-          <img class="top-logo" alt="0xBitcoin Logo" src="img/0xBTC_Orange-40px.png" height=40 width=40 />
-          <h1>0xBitcoin Token Statistics</h1>
+          <img class="top-logo" alt="0xGold Logo" src="img/0xBTC_Orange-40px.png" height=40 width=40 />
+          <h1>0xGold Token Statistics</h1>
         </div>
       </div>
       <div class="row">
@@ -154,7 +154,7 @@ Attributions:
     
       <div style="display:none;" id="row-miningcalculator">
         <div class="row">
-          <div class="column"><h4 class="add-top-padding"><a name="miningcalculator"></a>Mining calculator</h4></div>
+          <div class="column"><h4 class="add-top-padding"><a name="miningcalculator"></a><s>calculator</s></h4></div>
         </div>
         <div id="editor">
           <div class="row">
@@ -256,7 +256,7 @@ Attributions:
               </p>
               <ul>
                 <li><a href="https://docs.google.com/spreadsheets/d/1lpQufwMHeozyz2X5Xq9MhjLr_hVTkQfzpzXcdFQDRGg/edit#gid=826714715">
-                  0xBTC Mining Calculator
+                  0xGold Mining Calculator
                 </a> by minerjoe78, mikers, and others</li>
                 <!--
                 <li><a href="https://docs.google.com/spreadsheets/d/1lbNjXetgN0_CJP-jOVkVr4pvwn_sivbYjNyaU1KbnwQ/">
@@ -308,7 +308,8 @@ Attributions:
               </span>
             </div>
           </div>
-          <div class="column"><a href="https://etherscan.io/address/0x1d00FFffB205CC0C5a51E7c77a7668A8B90BBb90"><font color="#C0392B">❤</font> 0x1d00FFffB205CC0C5a51E7c77a7668A8B90BBb90</a></div>
+          <div class="column"><a href="https://etherscan.io/address/0x1d00FFffB205CC0C5a51E7c77a7668A8B90BBb90"><font color="#C0392B">❤</font>Thanks! 0x1d00FFffB205CC0C5a51E7c77a7668A8B90BBb90</a></div><br>
+          <div class="column"><a href="https://etherscan.io/address/0x291de53a16b76dfe28551fd3335225f506db8b82"><font color="#C0392B">❤</font>0xGold Smart Contract</a></div>
         </div>
       </div>
     </div>
@@ -365,14 +366,14 @@ Attributions:
           updateAndDisplayAllStats();
         }else if(searchParams.get('page') == 'miningcalculator') {
           log('MININGCALCULATOR selected');
-          $(document).attr("title", "Mining Calculator - 0xBitcoin Statistics");
+          $(document).attr("title", "Mining Calculator - 0xGold Statistics");
           $("#row-miningcalculator").show();
           loadAllStats();
         }else if(searchParams.get('page') == 'graphs') {
           log('GRAPHS selected');
           let days = 60;
           let points = 60;
-          $(document).attr("title", "Graphs - 0xBitcoin Statistics");
+          $(document).attr("title", "Graphs - 0xGold Statistics");
           if(searchParams.get('days')) {
             days = searchParams.get('days');
           }
