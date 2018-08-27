@@ -1,6 +1,8 @@
-// '0xBitcoin Token' contract ABI
+// '0xGold Token' contract ABI
 //
-// address: 0xB6eD7644C69416d67B522e20bC294A9a9B405B31
+// address: 0x291de53a16b76dfe28551fd3335225f506db8b82
+//
+// still need to add 
 //
 const tokenABI = [
    {
