@@ -8,23 +8,23 @@ function addToURL(value){
 
 const version = "v0.1.0";
 
-log('0xBitcoin Stats', version);
+log('0xGold Stats', version);
 el('#footerversion').innerHTML = version;
 
 
 /* intrinsic values */
-const _SECONDS_PER_ETH_BLOCK = 15;
+const _SECONDS_PER_ETH_BLOCK = 10;
 const _ZERO_BN = new Eth.BN(0, 10);
 
 /* contract constants */
 /* todo: pull these from the contract */
 /* todo: move these into some kind of contract helper class */
-const _BLOCKS_PER_READJUSTMENT = 1024;
-const _CONTRACT_ADDRESS = "0xB6eD7644C69416d67B522e20bC294A9a9B405B31";
+const _BLOCKS_PER_READJUSTMENT = 100;
+const _CONTRACT_ADDRESS = "0x291DE53a16b76dfE28551Fd3335225F506dB8b82";
 const _MINT_TOPIC = "0xcf6fbb9dcea7d07263ab4f5c3a92f53af33dffc421d9d121e1c74b307e68189d";
 const _MAXIMUM_TARGET_STR = "27606985387162255149739023449108101809804435888681546220650096895197184";  // 2**234
 const _MINIMUM_TARGET = 2**16;
-const _ETH_BLOCKS_PER_REWARD = 60;
+const _ETH_BLOCKS_PER_REWARD = 28;
 /* calculated contract values */
 const _MAXIMUM_TARGET_BN = new Eth.BN(_MAXIMUM_TARGET_STR, 10);
 const _MINIMUM_TARGET_BN = new Eth.BN(_MINIMUM_TARGET);
@@ -57,7 +57,7 @@ var pool_colors = {
 
 
 var known_miners = {
-  "0xf3243babf74ead828ac656877137df705868fd66" : [ "Token Mining Pool", "http://TokenMiningPool.com",     pool_colors.orange ],
+/*  "0xf3243babf74ead828ac656877137df705868fd66" : [ "Token Mining Pool", "http://TokenMiningPool.com",     pool_colors.orange ],
   "0xf118fde3f634e5c47638030ab0514debf39465d1" : [ "Token Mining Pool", "http://TokenMiningPool.com",     pool_colors.orange ], // mint helper contract (old)
   "0xeabe48908503b7efb090f35595fb8d1a4d55bd66" : [ "Token Mining Pool", "http://TokenMiningPool.com",     pool_colors.orange ], // mint helper contract
   "0x53ce57325c126145de454719b4931600a0bd6fc4" : [ "0xPool",            "http://0xPool.io",               pool_colors.purple ],
@@ -81,13 +81,15 @@ var known_miners = {
   "0x69ebd94944f0dba3e9416c609fbbe437b45d91ab" : [ "PiZzA pool",        "http://gpu.PiZzA",               pool_colors.yellow ],
   "0x69b85604799d16d938835852e497866a7b280323" : [ "PiZzA pool",        "http://gpu.PiZzA",               pool_colors.yellow ],
   "0x69ded73bd88a72bd9d9ddfce228eadd05601edd7" : [ "PiZzA pool",        "http://gpu.PiZzA",               pool_colors.yellow ],
+  */
+   "0x50212e78D96A183f415e1235e56E64416d972E93" : [ "mike.rs pool",      "http://mike.rs",                 pool_colors.green ],
 }
 
 
 
 
 /* TODO: figure out why it doesn't work w metamask */
-var eth = new Eth(new Eth.HttpProvider("https://mainnet.infura.io/MnFOXCPE2oOhWpOCyEBT"));
+var eth = new Eth(new Eth.HttpProvider("https://mainnet.infura.io/v3/64ed0e2bd61d41169b66e646f09453f9"));
 // if (typeof window.web3 !== 'undefined' && typeof window.web3.currentProvider !== 'undefined') {
 //   var eth = new Eth(window.web3.currentProvider);
 // } else {
@@ -194,17 +196,17 @@ stats = [
   ['Rewards Until Readjustment',    null,                                 "",           1,          null     ], /* mining difficulty */
   ['Current Average Reward Time',   null,                                 "minutes",    1,          null     ], /* mining difficulty */
   ['Last Difficulty Start Block',   token.latestDifficultyPeriodStarted,  "",           1,          null     ], /* mining difficulty */
-  ['Tokens Minted',                 token.tokensMinted,                   "0xBTC",      0.00000001, null     ], /* supply */
-  ['Max Supply for Current Era',    token.maxSupplyForEra,                "0xBTC",      0.00000001, null     ], /* mining */
-  ['Supply Remaining in Era',       null,                                 "0xBTC",      0.00000001, null     ], /* mining */
+  ['Tokens Minted',                 token.tokensMinted,                   "0xGOLD",      0.0000000001, null     ], /* supply */
+  ['Max Supply for Current Era',    token.maxSupplyForEra,                "0xGOLD",      0.0000000001, null     ], /* mining */
+  ['Supply Remaining in Era',       null,                                 "0xGOLD",      0.0000000001, null     ], /* mining */
   ['Last Eth Reward Block',         token.lastRewardEthBlockNumber,       "",           1,          null     ], /* mining */
   ['Last Eth Block',                eth.blockNumber,                      "",           1,          null     ], /* mining */
-  ['Current Reward Era',            token.rewardEra,                      "/ 39",       1,          null     ], /* mining */
-  ['Current Mining Reward',         token.getMiningReward,                "0xBTC",      0.00000001, null     ], /* mining */
+  ['Current Reward Era',            token.rewardEra,                      "/ 2",       1,          null     ], /* mining */
+  ['Current Mining Reward',         token.getMiningReward,                "0xGOLD",      0.0000000001, null     ], /* mining */
   ['Epoch Count',                   token.epochCount,                     "",           1,          null     ], /* mining */
-  ['Total Supply',                  token.totalSupply,                    "0xBTC",      0.00000001, null     ], /* supply */
+  ['Total Supply',                  token.totalSupply,                    "0xGOLD",      0.0000000001, null     ], /* supply */
   ['',                              null,                                 "",           1,          null     ], /* */
-  ['Token Holders',                 null,                                 "holders",    1,          null     ], /* usage */
+  ['Token Holders',                 null,                                 "hodlers",    1,          null     ], /* usage */
   ['Token Transfers',               null,                                 "transfers",  1,          null     ], /* usage */
   ['Total Contract Operations',     null,                                 "txs",        1,          null     ], /* usage */
 ];
@@ -361,7 +363,7 @@ function updateStatsThatHaveDependencies(stats) {
   }
   supply_remaining_in_era = max_supply_for_era - current_supply; /* TODO: probably need to round to current mining reward */
   rewards_blocks_remaining_in_era = supply_remaining_in_era / current_reward;
-  el_safe('#SupplyRemaininginEra').innerHTML = "<b>" + supply_remaining_in_era.toLocaleString() + "</b> 0xBTC <span style='font-size:0.8em;'>(" + rewards_blocks_remaining_in_era + " blocks)</span>";
+  el_safe('#SupplyRemaininginEra').innerHTML = "<b>" + supply_remaining_in_era.toLocaleString() + "</b> 0xGOLD <span style='font-size:0.8em;'>(" + rewards_blocks_remaining_in_era + " blocks)</span>";
 
   /* time until next epoch ('halvening') */
   el_safe('#CurrentRewardEra').innerHTML += " <span style='font-size:0.8em;'>(next era: ~" + secondsToReadableTime(rewards_blocks_remaining_in_era * _IDEAL_BLOCK_TIME_SECONDS) + ")</div>";
@@ -703,7 +705,7 @@ function updateAllMinerInfo(eth, stats, hours_into_past){
 
 }
 
-/* get last hours_into_past worth of mined 0xbtc blocks, save to a CSV file */
+/* get last hours_into_past worth of mined 0xgold blocks, save to a CSV file */
 function getMinerInfoCSV(eth, stats, hours_into_past){
   log('getMinerInfoCSV...')
   var last_reward_eth_block = getValueFromStats('Last Eth Reward Block', stats)
